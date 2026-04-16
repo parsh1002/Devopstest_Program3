@@ -6,9 +6,6 @@ pipeline {
         jdk 'JDK'         // Name configured in Jenkins
     }
 
-    environment {
-        DEPLOY_DIR = '/opt/tomcat/webapps'
-    }
 
     stages {
 
