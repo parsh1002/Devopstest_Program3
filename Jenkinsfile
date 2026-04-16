@@ -29,10 +29,7 @@ pipeline {
 
         stage('Deploy to Tomcat') {
             steps {
-                sh '''
-                echo "Deploying WAR file..."
-                cp target/Program3.war
-                '''
+                cp target/Program3.war 
             }
         }
     }
