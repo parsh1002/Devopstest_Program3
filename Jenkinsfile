@@ -1,45 +1,46 @@
 pipeline {
-    agent any
+    agent any  // Use any available agent
 
     tools {
-        maven 'Maven'     // Name configured in Jenkins
-        jdk 'JDK'         // Name configured in Jenkins
+        maven 'Maven'  // Ensure this matches the name configured in Jenkins
     }
-
-
     stages {
-
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/parsh1002/Devopstest_Program3.git'
+                git branch: 'main', url: 'https://github.com/SaiHarithK/webapptest.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean package'  // Run Maven build
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'mvn test'  // Run unit tests
             }
         }
 
-        stage('Deploy to Tomcat') {
+        
+        
+       
+        stage('Deploy WAR') {
             steps {
-                cp target/Program3.war 
+                sh 'cp target/MyWebApp.war /opt/tomcat/webapps/'
             }
         }
+
+        
     }
 
     post {
         success {
-            echo 'Build and Deployment Successful!'
+            echo 'Build and deployment successful!'
         }
         failure {
-            echo 'Build Failed!'
+            echo 'Build failed!'
         }
     }
 }
