@@ -28,7 +28,7 @@ pipeline {
        
         stage('Deploy WAR') {
             steps {
-                sh 'cp Program3.war /opt/tomcat/webapps/'
+                sh 'cp Program3.war /opt/tomcat/bin/'
             }
         }
 
