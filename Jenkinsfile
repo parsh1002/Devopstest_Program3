@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/SaiHarithK/webapptest.git'
+                git branch: 'main', url: 'https://github.com/parsh1002/Devopstest.Program3.git'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
        
         stage('Deploy WAR') {
             steps {
-                sh 'cp target/MyWebApp.war /opt/tomcat/webapps/'
+                sh 'cp target/*.war /opt/tomcat/webapps/'
             }
         }
 
